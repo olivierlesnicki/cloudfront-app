@@ -1,43 +1,34 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - node_modules/phantomjs-prebuilt/bin/phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- node_modules/phantomjs-prebuilt/bin/phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
-
+- npm test
 before_deploy:
-  - npm run build
-
+- npm run build
 deploy:
   provider: s3
   access_key_id:
-    secure: ueUtrv/Ndki5AsBdkDt7EhjJdES5Ij1R8/XXpJXbRPTb/C9mnlSFtODMe8QMYmyx7LLgRNjXfzKRx+yIXiMkHs8cLk7n76HAGkraXXWN3eLkxhPHDr2JQHAdRB0HP8fM1tQG2Pbr4xRUmcdbLq48uRuljYBTXZ0nOfd7eat09fOGKwzXjGpFkQ+BG+qhKgFCHQTexQLMBrxJdJJ0dWawB5WI2MSMmHdepCJyWPG1PTgTJy4lVu7EEw9VmEZGy2ZBl3GW2FTRWyaBSB6gKfqgTiaL7GAOjDut1BOjdzjBQz7nxfIHj7XdAzhuOstwm/lbTpG5RCiCih+gZELjBR9M8IWAg9vZXYaujbeZkhlH8t2QADWEYFS+s+lEQgaZOKtlK/Ovy97jbmttbnW1on7QciqBmKAabXYt7asawZfE94uAI/gZ5iqZl3PTLTStjqn7lwVtyEReugQhXOwk8g59lXYLqgbhn1WbZf+oqe+3ySJ5DgOYSYqgtlkXDIMnx9ZjxYopxP5rprL8pmcAXWrqOZnYrB77idzbKiyJWcav/dfjxj8oeg5edjHRclEXb8fn/ZHIjaglZjcxKxC3RJWHFDdE6fqWvqZl12mf/yTsTpWQUC7nQME3CBj/znuxbwQRpXS83pezvxv8dAzvtSoo4H8g5CPD53FmCUz2it+XaK4=
+    secure: JNZk6Xhcnm1vrN1seDhTJSoduy0d9Cxv2dDWoPMT3PpRw49x4Kp7i55jSSOa2n/qYoN+VHWBB/CkX4sq1F6/Bn66NGPA9vySx/n7/Yfcc2SrcFHVOa4ne6E5aAZZhDv60ebmOVRykD2yWQkukm0qMfYE+QdtMEIYb3cZJLoti4Hp0AqZp+WMMSNJB9HHrZOzLFqVXHtd+JWR4iWd2VAOkxnSiIoblFDxEBe2CNx+QuyOinCTqXzrisltvwgcy8Mfzg6RHfn+KjQWQMIwNDurlgDVD5ah9Ek/nEodIvC1LXzZq8dsI2hg/WMGk1tdDGB2NOTkkpoiw0sskHoLpA510E3fufM+7C0FCwCqjTcItwXQpSSDaWwDrYWHfqFz1ppr0jVr6tYEgH2rCWT50HdLcgueciuRZM8hOUFKKupcNIVNZrQLFiLBQONTWAOm/VjX55hE8pZ+p4KiDM9pi2QkYRgncl7X4jBfcDdmmNF46Llv6N9hJeJ7N4SUij/LQSpxWdv3l6riy+9jpiXnC2VfYjYEeM/ZUSCheXqEB/BHb/YNiMQEFV4UKoqWZlrxfkoPlOcPPgPm3RbgFIlLaOzNeTpWKUk0/urWpw+RkOhYuoh1MJ1u0v/XS9V4orAm1tpoKHwNcP1ZS+xMj9NqQTil2dA70C3hfg7poi2k4BTjv5E=
   secret_access_key:
-    secure: DW91a4Pio52GnUZPIUciQSVDlOe9nutwaHxkl57fZBHENciRVWiy4UgN15xbL0zj3pJa5+INhTHGhRMduPBDHbtM0puhDDQQdnTv3g97yIXJu2fAO3ncL2//vrN6g6hUnvDQZNxZ2kdUYG6lQYHc+LU4sjXtQW80uhIaVeiwceLeRvWfABsxdFWQoAVNoThRh6eqxDSbNcBKh+pE8zkI65Xg6hzOYvNdmBmiJdTR2JnsLYmJvX8lefgII/oCI5VeZ2Mn92X6BH/CYsvd0O7aXp0kjS5lb2ue0z1/rYH/ofqFjWx9gRNqXSXdK7hRkuZS3BTVdTSQHvPuGztM49yMCcgnvilUQWXcT7XwP3ia1LZ8ljRQqWmahLp65evxGEE3h1dj4rke6RXdYazmLr9R/S9NwsshcA4KbwqjgMRQEC76KXGr29DXnl6PvedMmRTQ1zzpP2CVJ9RbAWjC8y4Sd6giwL0Gv12qgRmnKqviUO/1kKldAWU1ydlU7kdfqaya70T/WwD//FYs2pf5hfJ53OBnYTGxd/apkNO9uq9yX1jvqx5mvGlhUpu4S4v0cymyGiE/2vP3Z/z2p52Pp9nYQaUGohNZ+sUmCOuQ/ojJZWTnsQ2pBgDrO8aBsCjjkR93AsOA+0ST7L+M8NWq+7LRuCN+VNRmL/qkyCmw9T6fU5A=
+    secure: MgWgJtiO3OcEL8f6W3ZeVo1ZM/VsCSdI+TPEtN4zsg9HonYK6Jmnfwhemkr8tzc+ZTjx61EeKJVPQ9HQkXhnMT+OKymraHtbITriFquX3zUzT2yIrYs5Ts2Ii9aucec3BRGGgwaKJ4MU4VQbebyTRnILFb+0OHPO3bMiKyTBbdPkylO2Pu5siUx5nlgpQBaiOIn6thYJnKQ8hkPuGCZpMLjI/NGsSE3PIvzziHwLl+PNXxniZxGz+VPp2YR10Oz9CRlFE2HLaTIwZhwY0mhjHEiGwQENEfTRq8mLGKu1ZOrMRDjcuTlTgZsRVV1z2ChXScAVgtoMdje83o7Og7C1pclDIJuMVN2qIm27tOf6wN8foVML7622x9uCv7AgDKETnWXp/K0h6LiLZBUh6KySM7ap9+Vr1mD8VMVQalNhUqJ59NZK4S3dW4DvpYwt28BbwArue2apKIkTFblpS36YragmzKKVfh2EtVyHsQPezp96Md6ludzc1EKitghHsjbMVgiTBm0lWG8Wk79vguNloxz1dxuhNRg3JIR6OHefHJ/7yC1MEVlMWhXdAoGnHUAl+9lN6BBvdIG+pkY4Qu7F3OCqYLrpK1kWb904LtPjxrK3JqnLxVr3EidEfRyl6fvzFgLbFvPpV1rEicw466+3u7uQCWLlExkEoPmbnKAeTqQ=
   bucket: cloudfront-app
   local_dir: dist
   upload_dir: master
   skip_cleanup: true
   region: us-west-2
-
 notifications:
   slack:
     on_success: change
