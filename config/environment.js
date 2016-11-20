@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'cloudfront-app',
     environment: environment,
-    rootURL: '/',
+    rootURL: '/identity',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
